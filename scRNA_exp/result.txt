@@ -1,0 +1,25 @@
+SVC (5 fold validation):
+test1
+min error is  0.3160828025477707
+min kernel is  linear
+min degree is  2
+
+test2
+min error is  0.32578125
+min kernel is  rbf
+min degree is  2
+
+test3
+min error is  0.34026381909547737
+min kernel is  linear
+min degree is  2
+
+test4
+min error is  0.38037383177570094
+min kernel is  linear
+min degree is  2
+
+test5
+min error is  0.3078791436078037
+min kernel is  rbf
+min degree is  2
