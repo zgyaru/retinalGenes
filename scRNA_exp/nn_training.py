@@ -27,8 +27,8 @@ if __name__ == "__main__":
         k = 0
         for train_index, validate_index in kf.split(X):
         # print("TRAIN:", train_index, "TEST:", validate_index)
-            X_train, X_validate = X[train_index].astype(np.float64), X[validate_index].astype(np.float64)
-            y_train, y_validate = y[train_index].astype(np.float64), y[validate_index].astype(np.float64)
+            X_train, X_validate = X[train_index], X[validate_index]
+            y_train, y_validate = y[train_index], y[validate_index]
 
             model = MLPClassifier(hidden_layer_sizes=hyper_p , max_iter = 10000)
             model.fit(X_train, y_train)

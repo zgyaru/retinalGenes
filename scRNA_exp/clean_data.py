@@ -53,4 +53,4 @@ def construct_training_set(feature_data, positive_list, negative_list):
         j += 1
 
     y = np.append(y, np.zeros(j))
-    return X, y
+    return X.astype(np.float64), y.astype(np.float64)
