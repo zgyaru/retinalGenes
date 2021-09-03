@@ -16,32 +16,31 @@ if __name__ == "__main__":
     kf = KFold(n_splits=5)
 
     # use NN
-    hyper_p_list = [(100,),(200,),(300,),(400,),(500,),(600,),(700,),(800,)]
-    min_error = 1000000
-    min_hyper = (1,)
+    hyper_p_list = [(5, 2), (5, 3), (6, 2), (6, 3), (7, 2), (15, ), (100,),(200,),(300,),(400,),(500,),(600,),(700,),(800,)]
+    # hyper_p_list = []
+
+    max_accuracy = -1000000
+    final_hyper = (1,)
 
     for hyper_p in hyper_p_list: 
-        va_error_list = np.zeros(kf.get_n_splits()) 
+        va_accuracy_list = np.zeros(kf.get_n_splits()) 
         k = 0
         for train_index, validate_index in kf.split(X):
         # print("TRAIN:", train_index, "TEST:", validate_index)
             X_train, X_validate = X[train_index].astype(np.float64), X[validate_index].astype(np.float64)
             y_train, y_validate = y[train_index].astype(np.float64), y[validate_index].astype(np.float64)
 
-            model = MLPClassifier(hidden_layer_sizes=hyper_p , max_iter = 1000)
+            model = MLPClassifier(hidden_layer_sizes=hyper_p , max_iter = 10000)
             model.fit(X_train, y_train)
-            yhat = model.predict(X_validate)
-            unequal_num = np.sum(yhat != y_validate)
-            # print('unequal number is', unequal_num)
-            va_error_list[k] = unequal_num / y_validate.size
+            va_accuracy_list[k] = model.score(X_validate, y_validate)
             k += 1
-        error = va_error_list.mean()
-        print('parameter = ', hyper_p, 'and error is ', error)
-        if error < min_error:
-            min_error = error
-            min_hyper = hyper_p
+        accuracy = va_accuracy_list.mean()
+        # print('parameter = ', hyper_p, 'and accuracy is ', accuracy)
+        if accuracy > max_accuracy:
+            max_accuracy = accuracy
+            final_hyper = hyper_p
 
 
-    print("min error is ", min_error)
-    print("min hyper is ", min_hyper)
+    print("max accuracy is", max_accuracy)
+    print("hyper is", final_hyper)
 

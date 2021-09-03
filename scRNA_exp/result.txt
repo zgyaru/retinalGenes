@@ -1,25 +1,93 @@
 SVC (5 fold validation):
 test1
-min error is  0.3160828025477707
-min kernel is  linear
-min degree is  2
+max accuracy is 0.6740055650414216
+final kernel is linear
+final degree is 2
 
 test2
-min error is  0.32578125
-min kernel is  rbf
-min degree is  2
+max accuracy is 0.67421875
+final kernel is rbf
+final degree is 2
 
 test3
-min error is  0.34026381909547737
-min kernel is  linear
-min degree is  2
+max accuracy is 0.6543026499302649
+final kernel is linear
+final degree is 2
 
 test4
-min error is  0.38037383177570094
-min kernel is  linear
-min degree is  2
+max accuracy is 0.6196261682242991
+final kernel is linear
+final degree is 2
 
 test5
-min error is  0.3078791436078037
-min kernel is  rbf
-min degree is  2
+max accuracy is 0.6921208563921963
+final kernel is rbf
+final degree is 2
+
+
+Random Forest:
+test1
+max accuracy is 0.655546069689496
+number of trees in the forest 30
+bootstrap is False
+
+test2
+max accuracy is 0.66328125
+number of trees in the forest 85
+bootstrap is False
+
+test3
+max accuracy is 0.6390725244072525
+number of trees in the forest 10
+bootstrap is False
+
+test4
+max accuracy is 0.6186915887850467
+number of trees in the forest 55
+bootstrap is False
+(parameters dose not make a big difference)
+
+test5
+max accuracy is 0.6612862653027
+number of trees in the forest 40
+bootstrap is True 
+(parameters dose not make a big difference)
+
+
+GaussianNB (No parameters need to tune):
+test1
+max accuracy is 0.6811832036931639
+
+test2
+max accuracy is 0.6828125
+
+test3
+max accuracy is 0.6685076708507671
+
+test4
+max accuracy is 0.6467289719626168
+
+test5
+max accuracy is 0.6763374140533289
+
+
+AdaBoost Classifier:
+test1
+accuarcy list is: [0.31746032 0.58964143 0.74900398 0.79282869 0.80876494]
+max accuracy is 0.6515398722570037
+
+test2
+accuarcy list is: [0.29296875 0.6171875  0.796875   0.796875   0.8046875 ]
+max accuracy is 0.66171875
+
+test3
+accuarcy list is: [0.30416667 0.42259414 0.76987448 0.79916318 0.79497908]
+max accuracy is 0.618155509065551
+
+test4
+accuarcy list is: [0.40654206 0.46261682 0.71495327 0.76635514 0.77102804]
+max accuracy is 0.6242990654205608
+
+test5
+accuarcy list is: [0.25373134 0.59550562 0.82397004 0.77902622 0.82022472]
+max accuracy is 0.6544915870087763
